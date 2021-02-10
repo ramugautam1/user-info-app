@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Login to continue</h2>
+  <form #loginform = "ngForm" (ngSubmit)="loginUser()">
+    <small class="text-danger">{{msg}}</small>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="user.email"
+             required #emails="ngModel" [class.is-invalid]="emails.invalid && emails.touched">
+      <small class="text-danger" [class.d-none]="emails.valid || emails.untouched">Email is a required field!</small>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" [(ngModel)]="user.password"
+             required #pwds="ngModel" [class.is-invalid]="pwds.invalid && pwds.touched">
+      <small class="text-danger" [class.d-none]="pwds.valid || pwds.untouched">Password is a required field!</small>
+
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
+
+<div class="container">
+  <div class="card card-container">
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+    <form class="form-signin" (ngSubmit)="loginUser()">
+      <span id="reauth-email" class="reauth-email"></span>
+
+      <small class="text-danger">{{msg}}</small>
+
+      <input type="email" name="email" class="form-control" placeholder="Enter email" required autofocus [(ngModel)]="user.email"
+             #emails="ngModel" [class.is-invalid]="emails.invalid && emails.touched">
+      <small class="text-danger" [class.d-none]="emails.valid || emails.untouched">Email is a required field!</small>
+
+      <input type="password" name="password" class="form-control" placeholder="Password" required [(ngModel)]="user.password"
+             #pwds="ngModel" [class.is-invalid]="pwds.invalid && pwds.touched">
+      <small class="text-danger" [class.d-none]="pwds.valid || pwds.untouched">Password is a required field!</small>
+
+      <div id="remember" class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Log in</button>
+    </form><!-- /form -->
+    <a href="#" class="forgot-password">
+      Forgot the password?
+    </a>
+  </div><!-- /card-container -->
+</div><!-- /container -->

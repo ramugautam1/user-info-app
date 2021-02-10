@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div>
+  <h1>User List</h1>
+  <button class="btn btn-primary" (click)="addUser()">Add User</button>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Mobile No</th>
+      <th>DOB</th>
+      <th>Hobbies</th>
+      <th>Nationality</th>
+      <th>Comments</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.dob}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.mobileNo}}</td>
+      <td>{{user.hobbies}}</td>
+      <td>{{user.nationality}}</td>
+      <td>{{user.comments}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editUser(user.id)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
